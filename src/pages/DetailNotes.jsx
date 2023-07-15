@@ -29,7 +29,7 @@ const DetailNotes = () => {
 
 
     return (
-        <div className='max-w-[960px] mr-auto ml-auto pr-4 pl-4 min-h-screen'>
+        <div className='max-w-[960px] mr-auto ml-auto pr-4 pl-4 pb-1 min-h-screen'>
             <HeaderArchive user={user}/>
             <OpenNote />
         </div>

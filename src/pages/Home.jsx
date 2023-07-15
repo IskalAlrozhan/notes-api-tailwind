@@ -83,7 +83,7 @@ const Home = () => {
 
 
   return (
-    <div className='max-w-[960px] mr-auto ml-auto pr-4 pl-4 min-h-screen'>
+    <div className='max-w-[960px] mr-auto ml-auto pr-4 pl-4 min-h-screen pb-1'>
       <Header user={user} />
       <Search keyword={keyword} keyChange={ubahKey} />
       <Noteslist notes={filterNotes} />

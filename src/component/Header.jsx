@@ -6,7 +6,7 @@ const Header = ({user}) => {
   const navigate = useNavigate();
 
   return (
-    <div className='flex items-center justify-between'>
+    <div className='flex items-center justify-between py-3'>
       <h1>Notes App</h1>
       <span>Selamat Datang {user.name}</span>
       <div className='flex items-center justify-between'>
