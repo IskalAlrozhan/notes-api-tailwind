@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const AddNote = () => {
@@ -18,7 +18,7 @@ const AddNote = () => {
       setAccessToken(accessToken);
     }
 
-  }, [])
+  }, [navigate])
 
   const CreateNote = async (e) => {
     e.preventDefault();

@@ -1,6 +1,5 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom'
-
 
 const HeaderArchive = ({user}) => {
   const navigate = useNavigate();
@@ -14,6 +13,14 @@ const HeaderArchive = ({user}) => {
         </button>
       </div>
     </div>
+  )
+}
+
+HeaderArchive.propTypes = {
+  user: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired
+    })
   )
 }
 

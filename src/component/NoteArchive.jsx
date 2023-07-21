@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import axios from 'axios';
-import React from 'react'
 import { MdDeleteForever, MdUnarchive } from 'react-icons/md'
 
 const NoteArchive = ({ id, title, body }) => {
@@ -49,5 +49,11 @@ const NoteArchive = ({ id, title, body }) => {
     </div>
   )
 }
+
+NoteArchive.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired
+};
 
 export default NoteArchive

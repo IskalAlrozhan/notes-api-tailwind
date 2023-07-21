@@ -1,7 +1,9 @@
-import axios from 'axios';
-import React from 'react'
-import { MdDeleteForever, MdArchive, MdOpenInFull } from 'react-icons/md'
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+import { MdDeleteForever, MdArchive, MdOpenInFull } from 'react-icons/md'
+
 
 const Note = ({ id, title, body }) => {
 
@@ -53,5 +55,11 @@ const Note = ({ id, title, body }) => {
   </div>
   )
 }
+
+Note.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired
+};
 
 export default Note

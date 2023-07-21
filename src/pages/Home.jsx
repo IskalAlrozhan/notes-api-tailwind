@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import axios from 'axios';
 import Header from '../component/Header'
 import Noteslist from '../component/Noteslist'
 import Search from '../component/Search'
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import axios from 'axios';
 
 const Home = () => {
 
@@ -20,7 +20,7 @@ const Home = () => {
 
     getUser(accessToken);
 
-  }, [])
+  }, [navigate])
 
   useEffect(() => {
     const accessToken = sessionStorage.getItem('accessToken');
@@ -72,7 +72,7 @@ const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [keyword, setKeyword] = useState(() => searchParams.get('keyword') || '');
 
-  const ubahKey = (keyword) => {
+  const changeKey = (keyword) => {
     setSearchParams({ keyword });
     setKeyword(keyword);
   }
@@ -85,7 +85,7 @@ const Home = () => {
   return (
     <div className='max-w-[960px] mr-auto ml-auto pr-4 pl-4 min-h-screen pb-1'>
       <Header user={user} />
-      <Search keyword={keyword} keyChange={ubahKey} />
+      <Search keyword={keyword} keyChange={changeKey} />
       <Noteslist notes={filterNotes} />
     </div>
   )

@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 import { MdSearch } from 'react-icons/md'
 
 const Search = ({ keyChange, keyword }) => {
@@ -18,5 +18,10 @@ const Search = ({ keyChange, keyword }) => {
     </div>
   )
 }
+
+Search.propTypes = {
+  keyChange: PropTypes.func.isRequired,
+  keyword: PropTypes.string.isRequired
+};
 
 export default Search

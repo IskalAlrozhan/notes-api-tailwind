@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 const Header = ({user}) => {
@@ -11,10 +11,18 @@ const Header = ({user}) => {
       <span>Selamat Datang {user.name}</span>
       <div className='flex items-center justify-between'>
         <button className='bg-gray-300 border-none rounded-2xl py-[5px] px-[10px] mr-1 cursor-pointer hover:bg-gray-200' onClick={()=> navigate("/ArchiveNote")}>
-          Archive Note
+          Archive
         </button>
       </div>
     </div>
+  )
+}
+
+Header.propTypes = {
+  user: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired
+    })
   )
 }
 

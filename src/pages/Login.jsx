@@ -1,6 +1,6 @@
-import axios from 'axios';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 const Login = () => {
 
@@ -60,6 +60,13 @@ const Login = () => {
               <button className='p-2 text-base bg-green-600 text-white border-none rounded cursor-pointer'>Login</button>
             </div>
           </form>
+          <div>
+            <button className='p-2 text-base bg-green-600 text-white border-none rounded cursor-pointer'
+              onClick={()=> navigate("/Register")}
+            >
+              Register
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import HeaderArchive from '../component/HeaderArchive'
-import NoteslistArchive from '../component/NoteslistArchive'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import HeaderArchive from '../component/HeaderArchive'
+import NoteslistArchive from '../component/NoteslistArchive'
 
 const ArchiveNote = () => {
 
@@ -17,7 +17,7 @@ const ArchiveNote = () => {
       navigate("/login")
     }
     // console.log(notesarc)
-  }, [])
+  }, [navigate])
 
   useEffect(() => {
     const accessToken = sessionStorage.getItem('accessToken');
