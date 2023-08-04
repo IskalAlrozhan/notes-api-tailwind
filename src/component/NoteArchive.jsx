@@ -4,7 +4,7 @@ import { MdDeleteForever, MdUnarchive } from 'react-icons/md'
 
 const NoteArchive = ({ id, title, body }) => {
 
-  const accessToken = sessionStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('accessToken');
 
   const handleUnarchive = async () => {
     try {

@@ -13,8 +13,8 @@ const Login = () => {
     e.preventDefault();
     try {
       const requestBody = {
-        email: email,
-        password: password
+        email,
+        password
       };
 
       const requestBodyString = JSON.stringify(requestBody);
@@ -26,8 +26,9 @@ const Login = () => {
       });
       // console.log(response.data.data.accessToken)
       const accessToken = response.data.data.accessToken
-      sessionStorage.setItem('accessToken', accessToken);
-      navigate("/");
+      localStorage.setItem('accessToken', accessToken);
+      window.location.reload();
+
     } catch (error) {
       console.log("Error saat melakukan registrasi:", error.response.data.message);
     }
@@ -62,7 +63,7 @@ const Login = () => {
           </form>
           <div>
             <button className='p-2 text-base bg-green-600 text-white border-none rounded cursor-pointer'
-              onClick={()=> navigate("/Register")}
+              onClick={() => navigate("/Register")}
             >
               Register
             </button>

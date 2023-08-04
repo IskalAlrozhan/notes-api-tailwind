@@ -8,7 +8,7 @@ import { MdDeleteForever, MdArchive, MdOpenInFull } from 'react-icons/md'
 const Note = ({ id, title, body }) => {
 
   const navigate = useNavigate();
-  const accessToken = sessionStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('accessToken');
 
   const handleArchive = async () => {
     try {

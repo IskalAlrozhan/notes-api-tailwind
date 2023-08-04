@@ -1,35 +1,18 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react'
 import axios from 'axios';
+import UserContext from '../context/UserContext';
+
 import HeaderArchive from '../component/HeaderArchive'
 import NoteslistArchive from '../component/NoteslistArchive'
 
 const ArchiveNote = () => {
-
+  const { user } = useContext(UserContext);
   const [notesarc, setNotesarc] = useState([]);
-  const [user, setUser] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const accessToken = sessionStorage.getItem('accessToken');
-
-    if (!accessToken) {
-      navigate("/login")
-    }
-    // console.log(notesarc)
-  }, [navigate])
-
-  useEffect(() => {
-    const accessToken = sessionStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem('accessToken');
     getNotesArchive(accessToken);
   }, [notesarc])
-
-  useEffect(() => {
-    const accessToken = sessionStorage.getItem('accessToken');
-    getUser(accessToken);
-  }, [user])
-
-  // console.log('disini = ', notesarc)
 
   const getNotesArchive = async (accessToken) => {
     try {
@@ -40,22 +23,6 @@ const ArchiveNote = () => {
       })
 
       setNotesarc(response.data.data)
-      // console.log(response.data.data)
-
-    } catch (error) {
-      console.log("error =", error.response.data)
-    }
-  }
-
-  const getUser = async (accessToken) => {
-    try {
-      const response = await axios.get('https://notes-api.dicoding.dev/v1/users/me', {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        },
-      })
-
-      setUser(response.data.data)
       // console.log(response.data.data)
 
     } catch (error) {

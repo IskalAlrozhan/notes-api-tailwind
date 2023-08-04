@@ -25,7 +25,7 @@ const OpenNote = () => {
   )
 
   useEffect(() => {
-    const accessToken = sessionStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem('accessToken');
     getNotes(accessToken);
   }, [notes, getNotes])
 

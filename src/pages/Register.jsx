@@ -10,13 +10,13 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const Register = async (e) => {
+  const RegisterClickHandler  = async (e) => {
     e.preventDefault();
     try {
       const requestBody = {
-        name: name,
-        email: email,
-        password: password
+        name,
+        email,
+        password
       };
 
       const requestBodyString = JSON.stringify(requestBody);
@@ -37,7 +37,7 @@ const Register = () => {
       <div className='flex justify-center items-center h-screen'>
         <div className='max-w-md m-[0 auto] p-5 bg-gray-200 border-[1px] border-gray-400 rounded-lg'>
           <h1 className='text-center mb-5'>User Registrasi</h1>
-          <form onSubmit={Register} className='login-form'>
+          <form onSubmit={RegisterClickHandler} className='login-form'>
             <div className='mb-5'>
               <label className='block mb-2 font-bold'>Nama</label>
               <input type='text' className='block w-full p-2 text-base border-[1px] border-gray-400 rounded-lg box-border' placeholder='John Doe'

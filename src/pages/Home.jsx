@@ -1,38 +1,31 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
+
+import UserContext from '../context/UserContext'
 import Header from '../component/Header'
 import Noteslist from '../component/Noteslist'
 import Search from '../component/Search'
 
-const Home = () => {
 
+const Home = () => {
+  const { user } = useContext(UserContext)
   const [notes, setNotes] = useState([]);
-  const [user, setUser] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    const accessToken = sessionStorage.getItem('accessToken');
-
-    if (!accessToken) {
-      navigate("/login")
+    const accessToken = localStorage.getItem('accessToken');
+    if(!accessToken) {
+      navigate("/")
     }
-
-    getUser(accessToken);
-
   }, [navigate])
+  
 
   useEffect(() => {
-    const accessToken = sessionStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem('accessToken');
     getNotes(accessToken);
   }, [notes])
-
-  useEffect(() => {
-    const accessToken = sessionStorage.getItem('accessToken');
-    getUser(accessToken);
-  }, [user])
-
-
 
   // console.log("disini = ", user)
 
@@ -45,24 +38,6 @@ const Home = () => {
       })
 
       setNotes(response.data.data)
-
-    } catch (error) {
-      console.log("error =", error.response.data)
-    }
-  }
-
-
-
-  const getUser = async (accessToken) => {
-    try {
-      const response = await axios.get('https://notes-api.dicoding.dev/v1/users/me', {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        },
-      })
-
-      setUser(response.data.data)
-      // console.log(response.data.data)
 
     } catch (error) {
       console.log("error =", error.response.data)

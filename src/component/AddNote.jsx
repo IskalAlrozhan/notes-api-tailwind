@@ -10,7 +10,7 @@ const AddNote = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const accessToken = sessionStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem('accessToken');
 
     if (!accessToken) {
       navigate("/login")
